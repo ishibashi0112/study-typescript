@@ -1,23 +1,40 @@
 import type { NextPage } from 'next'
 
-let foo:number =123
-function double(x:number):number | undefined{
-  if(x<0){
-    return
-  }
-  return x * 2
+// booleanリテラルtype
+const foo: true = true
+
+// stringリテラルtype
+const foge:"foo" = "foo"
+
+// numberリテラルtype
+const num:  2 = 2
+
+//ワイドニングの性質
+const bar = "test" as const
+let aaa = bar
+
+const bbb: number[] = [1,2,3]
+const ccc: (number | string | boolean)[] = [1,"test",true]
+
+//Tuple型　要素と数も指定
+const ddd:[number,string] = [1,"test"]
+
+//unknownm型
+const eee: unknown = "test"
+if(typeof eee === "string"){
+  eee.substr(2)
 }
 
-let hoge = {} as {bar:number}
-hoge.bar = 1
-
-
-const boo: boolean = false
-const str: string = "test"
-const num: number = 123
-const nu: null = null
-const und: undefined = undefined
-
+//void型
+function test():void{
+  alert("test")
+}
+const test2 = ():void=>{
+  alert("test")
+}
+const test3: ()=> void = ()=>{
+  alert("test")
+}
 
 const Home: NextPage = () => {
   return (<div>test</div>)
